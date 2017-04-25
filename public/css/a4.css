@@ -1,0 +1,34 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-attachment: fixed;
+    background-image: url('/images/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100%;
+}
+
+fieldset {
+    color: #f93;
+    text-shadow: 2px 2px 20px #000;
+}
+
+h1 {
+    color: white;
+    text-shadow: 2px 2px 20px #000;
+}
+
+span {
+    color: #ffffff;
+}
+
+span.hint {
+    font-size: 50%;
+}
+
+.opacity80 {
+    opacity: 0.8;
+}

@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+* Main homepage visitors see when they visit just /
+*/
+Route::get('/', 'DefectController@index');
 
 /**
 * Log viewer
