@@ -27,7 +27,7 @@ class CreateEnvironmentsTable extends Migration
             $table->string('long_name');
             $table->boolean('active')->default(1);
 
-      });
+        });
     }
 
     /**
