@@ -65,12 +65,13 @@
                             <select class="uk-select uk-card-hover"
                                 name="assignment">
                                 <option>- Select an assignment -</option>
-                                <option value="a1">A1: System Setup</option>
-                                <option value="a2">A2: PHP</option>
-                                <option value="a3">
-                                    A3: Framework (Laravel)</option>
-                                <option value="a4">
-                                    A4: Framework + Database</option>
+
+                                @foreach($assignments as $assignment)
+                                    <option value="{{ $assignment->id}}">
+                                        {{ $assignment->long_name }}
+                                    </option>
+                                @endforeach
+
                             </select>
                         </div>
 
@@ -92,15 +93,16 @@
                             </label>
                             <select class="uk-select uk-card-hover"
                                 name="submitter">
-                                <option>- Who reported the issue? -</option>
-                                <option value="Bryon Justice">
-                                    Bryon Justice</option>
-                                <option value="Jenni Whitman">
-                                    Jenni Whitman</option>
-                                <option value="Guest Peer">
-                                    Guest / Peer Review</option>
-                                <option value="Susan Buck">
-                                    Susan Buck</option>
+                                <option value="">
+                                    - Who reported the issue? -
+                                </option>
+                                @foreach($submitters as $submitter)
+                                    <option value="{{ $submitter->id }}">
+                                        {{ $submitter->first_name }}
+                                        {{ $submitter->last_name }}
+                                    </option>
+                                @endforeach
+
                             </select>
                         </div>
 
@@ -108,10 +110,14 @@
                             <label for="environment">ENVIRONMENT
                                 <span>*</span>
                             </label><br/ >
-                            <input class="uk-radio" type="radio"
-                                name="environment" checked><span>Local</span>
-                            <input class="uk-radio" type="radio"
-                                name="environment"> <span>Production</span>
+
+                            @foreach($environments as $environment)
+                                <input class="uk-radio" type="radio"
+                                    name="environment"
+                                    value="{{ $environment->id }}">
+                                    <span>{{ $environment->long_name }}</span>
+                                    <br>
+                            @endforeach
 
                         </div>
                     </div>
@@ -128,11 +134,11 @@
                                 <span>*</span>
                             </label>
                             <select class="uk-select uk-card-hover" name="state">
-                                <option value="submitted" selected>
-                                    Submitted</option>
-                                <option value="open">Open</option>
-                                <option value="fixed">Fixed</option>
-                                <option value="closed">Closed</option>
+                                @foreach($states as $state)
+                                    <option value="{{ $state->id }}">
+                                        {{ $state->long_name }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -140,15 +146,12 @@
                             <label for="priority">PRIORITY</label>
                             <select class="uk-select uk-card-hover"
                                 name="priority">
-                                <option>- select a priority -</option>
-                                <option value="1">
-                                    critical</option>
-                                <option value="2">
-                                    important</option>
-                                <option value="3">
-                                    normal</option>
-                                <option value="4">
-                                    low</option>
+                                <option value="">- select a priority -</option>
+                                @foreach($priorities as $priority)
+                                    <option value="{{ $priority->id }}">
+                                        {{ $priority->long_name }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -159,34 +162,23 @@
                             <select class="uk-select uk-card-hover"
                                 name="component">
                                 <option value="">- select a component -</option>
-                                <option value="presentation">
-                                    Client-side (HTML,CSS,JS)</option>
-                                <option value="controllers">Controllers</option>
-                                <option value="database">Database</option>
-                                <option value="forms">Forms</option>
-                                <option value="packages">Packages</option>
-                                <option value="performance">Performance</option>
-                                <option value="routes">Routes</option>
-                                <option value="views">Views / Blade</option>
+                                @foreach($components as $component)
+                                    <option value="{{ $component->id }}">
+                                        {{ $component->long_name }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="uk-width-1-2">
                             <label for="cause">CAUSE</label>
                             <select class="uk-select uk-card-hover" name="cause">
-                                <option>- select a cause -</option>
-                                <option value="code">code</option>
-                                <option value="configuration">
-                                    configuration</option>
-                                <option value="database">database</option>
-                                <option value="deployment">deployment</option>
-                                <option value="environment">environment</option>
-                                <option value="requirement">
-                                    missed requirement</option>
-                                <option value="third party software">
-                                    third party software</option>
-                                <option value="not a defect">
-                                    works as expected</option>
+                                <option value="">- select a cause -</option>
+                                @foreach($causes as $cause)
+                                    <option value="{{ $cause->id }}">
+                                        {{ $cause->long_name }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                   </div>
