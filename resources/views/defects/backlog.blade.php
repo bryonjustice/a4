@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Add a New Record</title>
         <link rel="stylesheet" href="css/uikit.min.css" />
         <link rel="stylesheet" href="css/a4.css" />
         <script src="js/jquery.js"></script>
@@ -107,13 +107,13 @@
                         </div>
 
                         <div class="uk-width-1-2">
-                            <label for="environment">ENVIRONMENT
+                            <label>ENVIRONMENT
                                 <span>*</span>
                             </label><br/ >
 
                             @foreach($environments as $environment)
                                 <input class="uk-radio" type="radio"
-                                    name="environment" id="environment"
+                                    name="environment"
                                     value="{{ $environment->id }}">
                                     <span>{{ $environment->long_name }}</span>
                                     <br>
@@ -187,7 +187,7 @@
                   <div class="uk-width-1-1">
                       <label for="note">NOTE</label>
                       <textarea class="uk-textarea uk-card-hover" rows="5"
-                      name="note" id="note " disabled>
+                      name="note" id="note" disabled>
                       Creating a defect
                       </textarea>
                   </div>
