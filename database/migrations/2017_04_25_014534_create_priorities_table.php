@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePrioritysTable extends Migration
+class CreatePrioritiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePrioritysTable extends Migration
      */
     public function up()
     {
-        Schema::create('prioritys', function (Blueprint $table) {
+        Schema::create('priorities', function (Blueprint $table) {
 
             # Increments method will make a Primary, Auto-Incrementing field.
             $table->increments('id');
@@ -26,7 +26,7 @@ class CreatePrioritysTable extends Migration
             $table->char('short_name', 2);
             $table->string('long_name');
             $table->boolean('active')->default(1);
-                        
+
         });
     }
 
@@ -37,6 +37,6 @@ class CreatePrioritysTable extends Migration
      */
     public function down()
     {
-        Schema::drop('prioritys');
+        Schema::drop('priorities');
     }
 }

@@ -14,37 +14,37 @@ class AssignmentsTableSeeder extends Seeder
     public function run()
     {
 
-      Assignment::insert([
-          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-          'short_name' => 'a1',
-          'long_name' => 'A1: System Setup',
-          'active' => 1,
-      ]);
+        Assignment::insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'short_name' => 'a1',
+            'long_name' => 'A1: System Setup',
+            'active' => 1,
+        ]);
 
-      Assignment::insert([
-          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-          'short_name' => 'a2',
-          'long_name' => 'A2: PHP',
-          'active' => 1,
-      ]);
+        Assignment::insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'short_name' => 'a2',
+            'long_name' => 'A2: PHP',
+            'active' => 1,
+        ]);
 
-      Assignment::insert([
-          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-          'short_name' => 'a3',
-          'long_name' => 'A3: Framework (Laravel)',
-          'active' => 1,
-      ]);
+        Assignment::insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'short_name' => 'a3',
+            'long_name' => 'A3: Framework (Laravel)',
+            'active' => 1,
+        ]);
 
-      Assignment::insert([
-          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-          'short_name' => 'a4',
-          'long_name' => 'A4: Framework + Database',
-          'active' => 1,
-      ]);
+        Assignment::insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'short_name' => 'a4',
+            'long_name' => 'A4: Framework + Database',
+            'active' => 1,
+        ]);
 
     }
 }

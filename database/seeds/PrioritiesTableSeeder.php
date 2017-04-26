@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Submitter; # <------ Add the Submitter Model
+use App\Priority; # <------ Add the Priority Model
 
-class SubmittersTableSeeder extends Seeder
+class PrioritiesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,39 +14,35 @@ class SubmittersTableSeeder extends Seeder
     public function run()
     {
 
-        Submitter::insert([
+        Priority::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'first_name' => 'Bryon',
-            'last_name' => 'Justice',
-            'email' => 'bryon_justice@yahoo.com',
+            'short_name' => 'P1',
+            'long_name' => 'Critical',
             'active' => 1,
         ]);
 
-        Submitter::insert([
+        Priority::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'first_name' => 'Jenni',
-            'last_name' => 'Whitman',
-            'email' => 'jenni@dwa15.com',
+            'short_name' => 'P2',
+            'long_name' => 'Important',
             'active' => 1,
         ]);
 
-        Submitter::insert([
+        Priority::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'first_name' => 'Guest',
-            'last_name' => 'Peer Review',
-            'email' => '',
+            'short_name' => 'P3',
+            'long_name' => 'Normal',
             'active' => 1,
         ]);
 
-        Submitter::insert([
+        Priority::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'first_name' => 'Susan',
-            'last_name' => 'Buck',
-            'email' => 'susanbuck@fas.harvard.edu',
+            'short_name' => 'P4',
+            'long_name' => 'Low',
             'active' => 1,
         ]);
 
