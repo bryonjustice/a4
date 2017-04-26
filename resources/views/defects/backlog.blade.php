@@ -43,7 +43,7 @@
                         <input class="uk-input uk-card-hover" type="text"
                             placeholder=
                             "Enter a brief title that best describes the issue."
-                            name="title">
+                            name="title" id="title">
                     </div>
 
                     <div class="uk-width-1-1">
@@ -53,7 +53,7 @@
                         <textarea class="uk-textarea uk-card-hover" rows="5"
                         placeholder=
                         "Enter step-by-step instructions to reproduce the issue."
-                            name="description"></textarea>
+                            name="description" id="description"></textarea>
                     </div>
 
                     <div class="uk-grid-small uk-flex" uk-grid >
@@ -63,7 +63,7 @@
                                 <span>*</span>
                             </label>
                             <select class="uk-select uk-card-hover"
-                                name="assignment">
+                                name="assignment" id="assignment">
                                 <option>- Select an assignment -</option>
 
                                 @foreach($assignments as $assignment)
@@ -82,7 +82,7 @@
                                 uk-icon="icon: lock"></span>
                             <input class="uk-input uk-card-hover" type="text"
                                 value="17.05.11.00" name="found_in_version"
-                                disabled >
+                                id="found_in_version" disabled >
                         </div>
                     </div>
 
@@ -92,7 +92,7 @@
                                 <span>*</span>
                             </label>
                             <select class="uk-select uk-card-hover"
-                                name="submitter">
+                                name="submitter" id="submitter">
                                 <option value="">
                                     - Who reported the issue? -
                                 </option>
@@ -113,7 +113,7 @@
 
                             @foreach($environments as $environment)
                                 <input class="uk-radio" type="radio"
-                                    name="environment"
+                                    name="environment" id="environment"
                                     value="{{ $environment->id }}">
                                     <span>{{ $environment->long_name }}</span>
                                     <br>
@@ -133,7 +133,8 @@
                             <label for="state">STATE
                                 <span>*</span>
                             </label>
-                            <select class="uk-select uk-card-hover" name="state">
+                            <select class="uk-select uk-card-hover"
+                                name="state" id="state">
                                 @foreach($states as $state)
                                     <option value="{{ $state->id }}">
                                         {{ $state->long_name }}
@@ -145,7 +146,7 @@
                         <div class="uk-width-1-2">
                             <label for="priority">PRIORITY</label>
                             <select class="uk-select uk-card-hover"
-                                name="priority">
+                                name="priority" id="priority">
                                 <option value="">- select a priority -</option>
                                 @foreach($priorities as $priority)
                                     <option value="{{ $priority->id }}">
@@ -158,9 +159,9 @@
 
                     <div class="uk-grid-small uk-flex" uk-grid >
                         <div class="uk-width-1-2">
-                            <label for="project">Component</label>
+                            <label for="component">Component</label>
                             <select class="uk-select uk-card-hover"
-                                name="component">
+                                name="component" id="component">
                                 <option value="">- select a component -</option>
                                 @foreach($components as $component)
                                     <option value="{{ $component->id }}">
@@ -172,7 +173,8 @@
 
                         <div class="uk-width-1-2">
                             <label for="cause">CAUSE</label>
-                            <select class="uk-select uk-card-hover" name="cause">
+                            <select class="uk-select uk-card-hover"
+                                name="cause" id="cause">
                                 <option value="">- select a cause -</option>
                                 @foreach($causes as $cause)
                                     <option value="{{ $cause->id }}">
@@ -185,7 +187,9 @@
                   <div class="uk-width-1-1">
                       <label for="note">NOTE</label>
                       <textarea class="uk-textarea uk-card-hover" rows="5"
-                      name="note" disabled>Creating a defect</textarea>
+                      name="note" id="note " disabled>
+                      Creating a defect
+                      </textarea>
                   </div>
 
                   <br/>
