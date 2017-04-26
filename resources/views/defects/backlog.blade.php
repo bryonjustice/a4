@@ -32,7 +32,7 @@
                     <div class="uk-card-badge uk-label">Defect</div>
                     <h3 class="uk-card-title">Enter a New Record</h3>
                 </div>
-                <br />
+                <br>
                 <!-- content: form -->
                 <form>
                 <fieldset class="uk-fieldset">
@@ -109,7 +109,7 @@
                         <div class="uk-width-1-2">
                             <label>ENVIRONMENT
                                 <span>*</span>
-                            </label><br/ >
+                            </label><br>
 
                             @foreach($environments as $environment)
                                 <input class="uk-radio" type="radio"
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                 </fieldset>
-                <br /><br />
+                <br><br>
                 <fieldset class="uk-fieldset">
                     <legend class="uk-legend">
                         INCIDENT MANAGEMENT / REMEDIATION
@@ -192,7 +192,7 @@
                       </textarea>
                   </div>
 
-                  <br/>
+                  <br>
                   <div>
                       <button class="uk-button uk-button-primary">Submit</button>
                   </div>
