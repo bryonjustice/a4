@@ -78,8 +78,6 @@
                         <div class="uk-width-1-2">
                             <label for="found_in_version">
                                 FOUND IN VERSION<span>*</span></label>
-                            <span class="uk-form-icon uk-form-icon-flip"
-                                uk-icon="icon: lock"></span>
                             <input class="uk-input uk-card-hover" type="text"
                                 value="17.05.11.00" name="found_in_version"
                                 id="found_in_version" disabled >
