@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SubmittersTableSeeder::class);
         $this->call(EnvironmentsTableSeeder::class);
         $this->call(StatesTableSeeder::class);
-        $this->call(PrioritysTableSeeder::class);
+        $this->call(PrioritiesTableSeeder::class);
         $this->call(ComponentsTableSeeder::class);
         $this->call(CausesTableSeeder::class);
         $this->call(NotesTableSeeder::class);
-        
+
     }
 }
