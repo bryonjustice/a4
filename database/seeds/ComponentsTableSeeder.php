@@ -17,6 +17,13 @@ class ComponentsTableSeeder extends Seeder
         Component::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'long_name' => 'Unknown',
+            'active' => 1,
+        ]);
+
+        Component::insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'long_name' => 'Client-side (HTML,CSS,JS)',
             'active' => 1,
         ]);
@@ -39,6 +46,13 @@ class ComponentsTableSeeder extends Seeder
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'long_name' => 'Forms',
+            'active' => 1,
+        ]);
+
+        Component::insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'long_name' => 'Laravel',
             'active' => 1,
         ]);
 

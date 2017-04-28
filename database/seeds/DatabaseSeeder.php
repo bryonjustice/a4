@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CausesTableSeeder::class);
         $this->call(NotesTableSeeder::class);
 
+        $this->call(DefectsTableSeeder::class);
+
     }
 }

@@ -142,7 +142,9 @@
                         </div>
 
                         <div class="uk-width-1-2">
-                            <label for="priority">PRIORITY</label>
+                            <label for="priority">PRIORITY
+                                <span>*</span>
+                            </label>
                             <select class="uk-select uk-card-hover"
                                 name="priority" id="priority">
                                 <option value="">- select a priority -</option>
@@ -157,7 +159,9 @@
 
                     <div class="uk-grid-small uk-flex" uk-grid >
                         <div class="uk-width-1-2">
-                            <label for="component">Component</label>
+                            <label for="component">Component
+                                <span>*</span>
+                            </label>
                             <select class="uk-select uk-card-hover"
                                 name="component" id="component">
                                 <option value="">- select a component -</option>
@@ -170,7 +174,9 @@
                         </div>
 
                         <div class="uk-width-1-2">
-                            <label for="cause">CAUSE</label>
+                            <label for="cause">CAUSE
+                                <span>*</span>
+                            </label>
                             <select class="uk-select uk-card-hover"
                                 name="cause" id="cause">
                                 <option value="">- select a cause -</option>

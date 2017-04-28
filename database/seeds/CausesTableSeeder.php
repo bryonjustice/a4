@@ -14,6 +14,13 @@ class CausesTableSeeder extends Seeder
     public function run()
     {
 
+      Cause::insert([
+          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+          'long_name' => 'Unknown',
+          'active' => 1,
+      ]);
+
         Cause::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),

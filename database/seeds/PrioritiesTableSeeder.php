@@ -14,6 +14,14 @@ class PrioritiesTableSeeder extends Seeder
     public function run()
     {
 
+      Priority::insert([
+          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+          'short_name' => '',
+          'long_name' => 'Unassigned',
+          'active' => 1,
+      ]);
+
         Priority::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
