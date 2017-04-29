@@ -15,26 +15,32 @@ use App\Note; # <------ Add the Note Model
 
 class DefectController extends Controller
 {
+
     /**
     * GET
     * /
+    * /new
     */
     public function new() {
-        $assignments = Assignment::all();
-        $submitters = Submitter::all();
-        $environments = Environment::all();
-        $states = State::all();
-        $priorities = Priority::all();
-        $components = Component::all();
-        $causes = Cause::all();
 
-        return view('/defects/backlog')
-            ->with('assignments', $assignments)
-            ->with('submitters', $submitters)
-            ->with('environments', $environments)
-            ->with('states', $states)
-            ->with('priorities', $priorities)
-            ->with('components', $components)
-            ->with('causes', $causes);
+        $assignmentsForDropdown = Assignment::getAssignmentsForDropdown();
+        $submittersForDropdown = Submitter::getSubmittersForDropdown();
+        $environmentsForRadio = Environment::getEnvironmentsForRadio();
+        $statesForDropdown = State::getStatesForDropdown();
+        $prioritiesForDropdown = Priority::getPrioritiesForDropdown();
+        $componentsForDropdown = Component::getComponentsForDropdown();
+        $causesForDropdown = Cause::getCausesForDropdown();
+
+
+        return view('/defects/new')->with([
+            'assignmentsForDropdown' => $assignmentsForDropdown,
+            'submittersForDropdown' => $submittersForDropdown,
+            'environmentsForRadio' => $environmentsForRadio,
+            'statesForDropdown' => $statesForDropdown,
+            'prioritiesForDropdown' => $prioritiesForDropdown,
+            'componentsForDropdown' => $componentsForDropdown,
+            'causesForDropdown' => $causesForDropdown,
+        ]);
+
     }
 }

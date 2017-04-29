@@ -29,6 +29,16 @@ span.hint {
     font-size: 50%;
 }
 
+.logo {
+    color: #f93;
+}
+
 .opacity80 {
     opacity: 0.8;
+}
+
+.super {
+    color: #f93;
+    font-size: 25%;
+    vertical-align: super;
 }
