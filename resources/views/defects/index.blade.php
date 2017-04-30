@@ -24,11 +24,17 @@
                     <td>{{ $defect->state->long_name }}</td>
                     <td>{{ $defect->priority->long_name }}</td>
                     <td>
-                        <a href="#"
-                            class="uk-icon-link uk-margin-small-right"
-                            uk-icon="icon: file-edit"></a>
+                        <a href="defects/view/{{ $defect->id }}"
+                            class="uk-icon-link"
+                            uk-icon="icon: search"
+                            title="View this record"></a>
+                        <a href="defects/edit/{{ $defect->id }}"
+                            class="uk-icon-link"
+                            uk-icon="icon: file-edit"
+                            title="Edit this record"></a>
                         <a href="defects/delete/{{ $defect->id }}"
-                            class="uk-icon-link" uk-icon="icon: trash"></a>
+                            class="uk-icon-link" uk-icon="icon: trash"
+                            title="Delete this record"></a>
                     </td>
                 </tr>
             @endforeach

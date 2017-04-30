@@ -28,13 +28,7 @@ class CreateDefectsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('found_in_version');
-    		    #$table->integer('assignment_id');
-    		    #$table->integer('cause_id')->nullable();
-    		    #$table->integer('component_id')->nullable();
-    		    #$table->integer('environment_id');
-    		    #$table->integer('priority_id')->nullable();
-            #$table->integer('state_id');
-            #$table->integer('submitter_id');
+            $table->boolean('active')->default(1);
 
     	   });
     }

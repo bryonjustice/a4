@@ -25,7 +25,8 @@ class DefectController extends Controller
     public function index() {
 
         #Eager load the priority and state with the books
-        $defects = Defect::with('state')->get();
+        $defects = Defect::where('active', '=', 1)
+            ->with('state')->get();
 
         return view('defects.index')->with(['defects' => $defects]);
 
@@ -117,6 +118,21 @@ class DefectController extends Controller
             return redirect('/');
         }
         return view('defects.delete')->with('defect', $defect);
+
+    }
+
+    public function hideDefect(Request $request) {
+
+        $defect = Defect::find($request->id);
+
+        # 'Soft' delete the record by setting the active value to false.
+        $defect->active = 0;
+
+        $defect->save();
+
+        Session::flash('message',
+            'You successfully deleted record '.$request->id.'!');      
+        return redirect('/');
 
     }
 
