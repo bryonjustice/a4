@@ -4,11 +4,11 @@
         <title>
             @yield('title','defect log')
         </title>
-        <link rel="stylesheet" href="css/uikit.min.css" />
-        <link rel="stylesheet" href="css/a4.css" />
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/uikit.min.js"></script>
-        <script src="js/uikit-icons.min.js"></script>
+        <link rel="stylesheet" href="/css/uikit.min.css" />
+        <link rel="stylesheet" href="/css/a4.css" />
+        <script src="/js/jquery-3.2.1.min.js"></script>
+        <script src="/js/uikit.min.js"></script>
+        <script src="/js/uikit-icons.min.js"></script>
     </head>
     <body>
         <!-- top banner -->
