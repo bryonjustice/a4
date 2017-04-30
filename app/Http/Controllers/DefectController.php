@@ -104,4 +104,20 @@ class DefectController extends Controller
         return redirect('/');
 
     }
+
+    public function confirmDeleteDefect($id) {
+
+        # Find the specific defect requested to delete
+        $defect = Defect::find($id);
+
+        # If the defect does not exist then flash the user the alert message
+        if(!$defect) {
+            Session::flash('message',
+                'Unable to delete the requested item. The record was not found.');
+            return redirect('/');
+        }
+        return view('defects.delete')->with('defect', $defect);
+
+    }
+
 }

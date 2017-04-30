@@ -27,7 +27,7 @@
                         <a href="#"
                             class="uk-icon-link uk-margin-small-right"
                             uk-icon="icon: file-edit"></a>
-                        <a href="#"
+                        <a href="defects/delete/{{ $defect->id }}"
                             class="uk-icon-link" uk-icon="icon: trash"></a>
                     </td>
                 </tr>
