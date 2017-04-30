@@ -4,6 +4,28 @@
     Create a New Defect Record
 @endsection
 
+@if(count($errors) > 0)
+    <!-- content: form correction -->
+    <div class="uk-alert-danger uk-animation-scale-up" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <dl class="uk-description-list">
+            <dt class="uk-text-danger">
+                <span class="uk-icon-button uk-text-danger"
+                    uk-icon="icon: warning; ratio: 3.5"></span>
+                Oops! Unfortunately, your request could not be processed.
+            </dt>
+            <dd>Please correct the following and then give it another try:
+                <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}
+                @endforeach
+                </ul>
+            </dd>
+        </dl>
+    </div>
+
+@endif
+
 @section('content')
     <!-- content: form -->
     <form method='POST' action='/defects/create'>
@@ -32,11 +54,11 @@
         <div class="uk-grid-small uk-flex" uk-grid >
 
             <div class="uk-width-1-2">
-                <label for="assignment">ASSIGNMENT
+                <label for="assignment_id">ASSIGNMENT
                     <span>*</span>
                 </label>
                 <select class="uk-select uk-card-hover"
-                    name="assignment" id="assignment">
+                    name="assignment_id" id="assignment_id">
                     <option>- Select an assignment -</option>
 
                     @foreach($assignmentsForDropdown as
@@ -54,17 +76,17 @@
                     FOUND IN VERSION<span>*</span></label>
                 <input class="uk-input uk-card-hover" type="text"
                     value="17.05.11.00" name="found_in_version"
-                    id="found_in_version" disabled >
+                    id="found_in_version" >
             </div>
         </div>
 
         <div class="uk-grid-small uk-flex" uk-grid >
             <div class="uk-width-1-2">
-                <label for="submitter">SUBMITTED BY
+                <label for="submitter_id">SUBMITTED BY
                     <span>*</span>
                 </label>
                 <select class="uk-select uk-card-hover"
-                    name="submitter" id="submitter">
+                    name="submitter_id" id="submitter_id">
                     <option value="">
                         - Who reported the issue? -
                     </option>
@@ -86,7 +108,7 @@
                 @foreach($environmentsForRadio as
                     $environment_id => $environment_long_name)
                     <input class="uk-radio" type="radio"
-                        name="environment"
+                        name="environment_id"
                         value="{{ $environment_id }}">
                         <span>{{ $environment_long_name }}</span>
                         <br>
@@ -103,11 +125,11 @@
 
         <div class="uk-grid-small uk-flex" uk-grid >
             <div class="uk-width-1-2">
-                <label for="state">STATE
+                <label for="state_id">STATE
                     <span>*</span>
                 </label>
                 <select class="uk-select uk-card-hover"
-                    name="state" id="state">
+                    name="state_id" id="state_id">
                     @foreach($statesForDropdown as
                         $state_id => $state_long_name)
                         <option value="{{ $state_id }}">
@@ -118,11 +140,11 @@
             </div>
 
             <div class="uk-width-1-2">
-                <label for="priority">PRIORITY
+                <label for="priority_id">PRIORITY
                     <span>*</span>
                 </label>
                 <select class="uk-select uk-card-hover"
-                    name="priority" id="priority">
+                    name="priority_id" id="priority_id">
                     <option value="">- select a priority -</option>
                     @foreach($prioritiesForDropdown as
                         $priority_id => $priority_long_name)
@@ -136,11 +158,11 @@
 
         <div class="uk-grid-small uk-flex" uk-grid >
             <div class="uk-width-1-2">
-                <label for="component">COMPONENT
+                <label for="component_id">COMPONENT
                     <span>*</span>
                 </label>
                 <select class="uk-select uk-card-hover"
-                    name="component" id="component">
+                    name="component_id" id="component_id">
                     <option value="">- select a component -</option>
                     @foreach($componentsForDropdown as
                         $component_id => $component_long_name)
@@ -152,11 +174,11 @@
             </div>
 
             <div class="uk-width-1-2">
-                <label for="cause">CAUSE
+                <label for="cause_id">CAUSE
                     <span>*</span>
                 </label>
                 <select class="uk-select uk-card-hover"
-                    name="cause" id="cause">
+                    name="cause_id" id="cause_id">
                     <option value="">- select a cause -</option>
                     @foreach($causesForDropdown as
                         $cause_id => $cause_long_name)
@@ -170,9 +192,7 @@
       <div class="uk-width-1-1">
           <label for="note">NOTE</label>
           <textarea class="uk-textarea uk-card-hover" rows="5"
-          name="note" id="note" disabled>
-          Creating a defect
-          </textarea>
+          name="note" id="note"></textarea>
       </div>
 
       <br>

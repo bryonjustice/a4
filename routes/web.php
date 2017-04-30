@@ -14,8 +14,9 @@
 /**
 * Main homepage visitors see when they visit just /
 */
-Route::get('/', 'DefectController@new');
-Route::get('/new', 'DefectController@new');
+Route::get('/', 'DefectController@index');
+Route::get('/defects/new', 'DefectController@enterNewDefect');
+Route::post('/defects/create', 'DefectController@createNewDefect');
 
 /**
 * Log viewer
