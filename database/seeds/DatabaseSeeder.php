@@ -19,9 +19,12 @@ class DatabaseSeeder extends Seeder
         $this->call(PrioritiesTableSeeder::class);
         $this->call(ComponentsTableSeeder::class);
         $this->call(CausesTableSeeder::class);
+        $this->call(TagsTableSeeder::class);
+        
+        # These must run chronologically due to foreign keys
+        $this->call(DefectsTableSeeder::class);
         $this->call(NotesTableSeeder::class);
 
-        $this->call(DefectsTableSeeder::class);
 
     }
 }

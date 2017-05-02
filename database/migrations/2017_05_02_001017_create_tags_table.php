@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNotesTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,7 @@ class CreateNotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('notes', function (Blueprint $table) {
-
+        Schema::create('tags', function (Blueprint $table) {
             # Increments method will make a Primary, Auto-Incrementing field.
             $table->increments('id');
 
@@ -23,9 +22,8 @@ class CreateNotesTable extends Migration
             $table->timestamps();
 
             # The rest of the fields...
-            $table->text('post');
+            $table->string('long_name');
             $table->boolean('active')->default(1);
-
         });
     }
 
@@ -36,6 +34,6 @@ class CreateNotesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('notes');
+        Schema::drop('tags');
     }
 }

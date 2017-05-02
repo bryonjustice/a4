@@ -16,8 +16,8 @@ class DefectsTableSeeder extends Seeder
         Defect::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'title' => 'Testing Migration failed',
-            'description' => 'DefectsTableSeeder is missing the use statement',
+            'title' => 'SQLSTATE[28000] [1045] Access denied for user',
+            'description' => 'Tried to run  migrations but they failed.',
             'found_in_version' => '17.05.11.00',
             'assignment_id' => 1,
             'cause_id' => 1,

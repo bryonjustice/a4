@@ -19,6 +19,8 @@ Route::get('/defects/new', 'DefectController@enterNewDefect');
 Route::post('/defects/create', 'DefectController@createNewDefect');
 Route::get('/defects/delete/{id}', 'DefectController@confirmDeleteDefect');
 Route::post('/defects/delete', 'DefectController@hideDefect');
+Route::get('/defects/edit/{id}', 'DefectController@editDefect');
+Route::post('defects/edit', 'DefectController@updateDefect');
 
 /**
 * Log viewer

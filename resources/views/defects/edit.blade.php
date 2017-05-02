@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Create a New Defect Record
+    Edit this Defect Record
 @endsection
 
 @if(count($errors) > 0)
@@ -28,8 +28,9 @@
 
 @section('content')
     <!-- content: form -->
-    <form method='POST' action='/defects/create'>
+    <form method='POST' action='/defects/edit'>
     {{ csrf_field() }}
+    <input type='hidden' name='id' value='{{$defect->id}}'>
     <fieldset class="uk-fieldset">
         <legend class="uk-legend">SUMMARY</legend>
         <span>* Required fields</span>
@@ -39,7 +40,7 @@
                 placeholder=
                 "Enter a brief title that best describes the issue."
                 name="title" id="title"
-                value="{{ old('title', '') }}">
+                value="{{ old('title', $defect->title) }}">
         </div>
 
         <div class="uk-width-1-1">
@@ -50,7 +51,8 @@
             placeholder=
             "Enter step-by-step instructions to reproduce the issue."
                 name="description"
-                id="description">{{ old('description', '') }}</textarea>
+                id="description">{{ old('description',
+                $defect->description) }}</textarea>
         </div>
 
         <div class="uk-grid-small uk-flex" uk-grid >
@@ -66,7 +68,8 @@
                     @foreach($assignmentsForDropdown as
                         $assignment_id => $assignment_long_name)
                         <option value="{{ $assignment_id }}"
-                        {{ (old('assignment_id') == $assignment_id)
+                        {{ (old('assignment_id') == $assignment_id ||
+                        $defect->assignment_id == $assignment_id)
                             ? 'SELECTED' : '' }}>{{ $assignment_long_name }}
                         </option>
                     @endforeach
@@ -78,7 +81,8 @@
                 <label for="found_in_version">
                     FOUND IN VERSION<span>*</span></label>
                 <input class="uk-input uk-card-hover" type="text"
-                    value="{{ old('found_in_version', '17.05.11.00') }}"
+                    value="{{ old('found_in_version',
+                    $defect->found_in_version) }}"
                     name="found_in_version" id="found_in_version" >
             </div>
         </div>
@@ -96,7 +100,8 @@
                     @foreach($submittersForDropdown as
                         $submitter_id => $submitterName)
                         <option value="{{ $submitter_id }}"
-                        {{ (old('submitter_id') == $submitter_id)
+                        {{ (old('submitter_id') == $submitter_id ||
+                        $defect->submitter_id == $submitter_id)
                             ? 'SELECTED' : '' }}>{{ $submitterName }}
                         </option>
                     @endforeach
@@ -114,7 +119,8 @@
                     <input class="uk-radio" type="radio"
                         name="environment_id"
                         value="{{ $environment_id }}"
-                        {{ (old('environment_id') == $environment_id) ?
+                        {{ (old('environment_id') == $environment_id ||
+                        $defect->environment_id == $environment_id) ?
                         'CHECKED' : '' }}>
                         <span>{{ $environment_long_name }}</span>
                         <br>
@@ -139,7 +145,8 @@
                     @foreach($statesForDropdown as
                         $state_id => $state_long_name)
                         <option value="{{ $state_id }}"
-                        {{ (old('state_id') == $state_id)
+                        {{ (old('state_id') == $state_id ||
+                        $defect->state_id == $state_id)
                             ? 'SELECTED' : '' }}>
                             {{ $state_long_name }}
                         </option>
@@ -157,7 +164,8 @@
                     @foreach($prioritiesForDropdown as
                         $priority_id => $priority_long_name)
                         <option value="{{ $priority_id }}"
-                        {{ (old('priority_id') == $priority_id)
+                        {{ (old('priority_id') == $priority_id ||
+                        $defect->priority_id == $priority_id)
                             ? 'SELECTED' : '' }}>
                             {{ $priority_long_name }}
                         </option>
@@ -177,7 +185,8 @@
                     @foreach($componentsForDropdown as
                         $component_id => $component_long_name)
                         <option value="{{ $component_id }}"
-                        {{ (old('component_id') == $component_id)
+                        {{ (old('component_id') == $component_id ||
+                        $defect->component_id == $component_id)
                             ? 'SELECTED' : '' }}>
                            {{ $component_long_name }}
                         </option>
@@ -195,7 +204,8 @@
                     @foreach($causesForDropdown as
                         $cause_id => $cause_long_name)
                         <option value="{{ $cause_id }}"
-                        {{ (old('cause_id') == $cause_id)? 'SELECTED' : '' }}>
+                        {{ (old('cause_id') == $cause_id ||
+                        $defect->cause_id == $cause_id)? 'SELECTED' : '' }}>
                             {{ $cause_long_name }}
                         </option>
                     @endforeach
@@ -206,13 +216,24 @@
             <label for="note">NOTE</label>
             <textarea class="uk-textarea uk-card-hover" rows="5"
             name="note" id="note">{{ old('note', '') }}</textarea>
-        </div>
-
-        <br>
+        </div><br>
         <div>
             <button class="uk-button uk-button-primary">Submit</button>
             <br><br><br>
         </div>
-    </fieldset>
+        <span class="uk-margin-small-right" uk-icon="icon: history;">
+        </span>HISTORY
+        <div class="uk-card uk-card-secondary uk-card-body uk-width-1-1@m
+        uk-card-hover text-small">
+            @foreach($notesForHistory as $note_id => $post)
+            <h5 class="uk-heading-line">
+                <span uk-icon="icon: quote-right;"></span> Note </h5>
+            <span uk-icon="icon: triangle-right;"></span>
+                {{ $post }}<br>
+            @endforeach
+        </div>
+        <br>
+      </fieldset>
     </form>
+
 @endsection
