@@ -130,6 +130,7 @@
         </legend>
 
         <div class="uk-grid-small uk-flex" uk-grid >
+            <!-- content: form :: state [select] -->
             <div class="uk-width-1-2">
                 <label for="state_id">STATE
                     <span>*</span>
@@ -146,7 +147,7 @@
                     @endforeach
                 </select>
             </div>
-
+            <!-- content: form :: priority [select] -->
             <div class="uk-width-1-2">
                 <label for="priority_id">PRIORITY
                     <span>*</span>
@@ -167,6 +168,7 @@
         </div>
 
         <div class="uk-grid-small uk-flex" uk-grid >
+            <!-- content: form :: component [select] -->
             <div class="uk-width-1-2">
                 <label for="component_id">COMPONENT
                     <span>*</span>
@@ -184,7 +186,7 @@
                     @endforeach
                 </select>
             </div>
-
+            <!-- content: form :: cause [select] -->
             <div class="uk-width-1-2">
                 <label for="cause_id">CAUSE
                     <span>*</span>
@@ -201,13 +203,38 @@
                     @endforeach
                 </select>
             </div>
-        </div>
+        </div><br>
+        <!-- content: form :: toggle Tags on/off -->
+        <label for="cause_id"><span uk-icon="icon: tag"></span>TAGS</label><br>
+        <button href="#toggle-animation"
+            class="uk-button uk-button-secondary uk-button-small" type="button"
+            uk-toggle="target: .toggleTags;
+            animation: uk-animation-fade; queued: true; ">
+            <span class="toggleTags"
+                uk-icon="icon: chevron-down"> SHOW</span>
+            <span class="toggleTags"
+                uk-icon="icon: chevron-up" hidden> HIDE</span>
+        </button><br><br>
+        <div class="uk-margin-large-left">
+
+            <div class="toggleTags uk-card uk-card-default
+                uk-card-body uk-child-width-expand" uk-grid hidden>
+                @foreach($tagsForCheckboxes as $id => $long_name)
+                    <div class="uk-width-1-4">
+                        <label class="uk-text-small"><input class="uk-checkbox"
+                            type="checkbox" value='{{ $id }}' name='tags[]'>
+                        {{ $long_name }}</label>
+                    </div>
+                @endforeach
+            </div>
+        </div><br>
+        <!-- content: form :: note [textarea] -->
         <div class="uk-width-1-1">
             <label for="note">NOTE</label>
             <textarea class="uk-textarea uk-card-hover" rows="5"
             name="note" id="note">{{ old('note', '') }}</textarea>
         </div>
-
+        <!-- content: form :: submit -->
         <br>
         <div>
             <button class="uk-button uk-button-primary">Submit</button>

@@ -11,10 +11,10 @@
     <form method='POST' action='/defects/delete'>
     {{ csrf_field() }}
 
-        <input type='hidden' name='id' value='{{ $defect->id }}'?>
+        <input type='hidden' name='id' value='{{ $defect->id }}'>
         <h3 class="uk-card-title">
             Are you sure you want to delete record
-                <span class="uk-text-warning"># {{ $defect->id }} <span>?
+                <span class="uk-text-warning"># {{ $defect->id }} </span>?
         </h3>
 
         <button class="uk-button uk-button-primary">Yes, delete</button><br><br>

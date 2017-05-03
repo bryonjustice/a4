@@ -15,14 +15,14 @@
         <div uk-grid>
             <div class="uk-width-1-1 uk-margin-large-left">
                 <div class="uk-offcanvas-content">
-                    <h1><a href="#offcanvas-usage" uk-icon="icon: menu; ratio: 2"
+                    <h1><a href="#menu" uk-icon="icon: menu; ratio: 2"
                     uk-toggle class="logo" title="Menu"></a>
                     <span class="logo">
                         D</span><span class="super">WA</span>efect backlog
                     </h1>
 
                     <!-- sliding navigation / help -->
-                    <div id="offcanvas-usage" uk-offcanvas>
+                    <div id="menu" uk-offcanvas>
                         <div class="uk-offcanvas-bar">
                             <button class="uk-offcanvas-close" type="button"
                                 uk-close></button>
@@ -52,7 +52,7 @@
                                     record navigate HOME. Find the record you
                                     would like to view and click the
                                     <span uk-icon="icon: search"></span> icon
-                                    under the ACTIONS column.</p>                                    
+                                    under the ACTIONS column.</p>
 
                                 <h5 class="uk-heading-line">
                                     <span>Update</span></h5>

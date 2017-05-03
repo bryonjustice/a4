@@ -4,16 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Assignment; # <------ Add the Assignment Model
-use App\Submitter; # <------ Add the Submitter Model
-use App\Environment; # <------ Add the Environment Model
-use App\State; # <------ Add the State Model
-use App\Priority; # <------ Add the Priority Model
-use App\Component; # <------ Add the Component Model
-use App\Cause; # <------ Add the Cause Model
-use App\Note; # <------ Add the Note Model
+# Add the Models
+use App\Assignment; # Add the Assignment Model
+use App\Submitter; # Add the Submitter Model
+use App\Environment; # Add the Environment Model
+use App\State; # Add the State Model
+use App\Priority; # Add the Priority Model
+use App\Component; # Add the Component Model
+use App\Cause; # Add the Cause Model
+use App\Note; # Add the Note Model
+use App\Defect; # Add the Defect Model
+use App\Tag; # Add the Tag Model
+
+# Add Session to provide user feedback
 use Session;
-use App\Defect; # <------ Add the Defect Model
 
 class DefectController extends Controller
 {
@@ -24,7 +28,7 @@ class DefectController extends Controller
     */
     public function index() {
 
-        #Eager load the priority and state with the books
+        #Eager load the priority and state with the defects
         $defects = Defect::where('active', '=', 1)
             ->with('state')->get();
 
@@ -38,6 +42,7 @@ class DefectController extends Controller
     */
     public function enterNewDefect(Request $request) {
 
+        # Get the data to build the dynamic form elements
         $assignmentsForDropdown = Assignment::getAssignmentsForDropdown();
         $submittersForDropdown = Submitter::getSubmittersForDropdown();
         $environmentsForRadio = Environment::getEnvironmentsForRadio();
@@ -45,8 +50,9 @@ class DefectController extends Controller
         $prioritiesForDropdown = Priority::getPrioritiesForDropdown();
         $componentsForDropdown = Component::getComponentsForDropdown();
         $causesForDropdown = Cause::getCausesForDropdown();
+        $tagsForCheckboxes = Tag::getTagsForCheckboxes();
 
-
+        # Return the 'new' view
         return view('/defects/new')->with([
             'assignmentsForDropdown' => $assignmentsForDropdown,
             'submittersForDropdown' => $submittersForDropdown,
@@ -55,6 +61,7 @@ class DefectController extends Controller
             'prioritiesForDropdown' => $prioritiesForDropdown,
             'componentsForDropdown' => $componentsForDropdown,
             'causesForDropdown' => $causesForDropdown,
+            'tagsForCheckboxes' => $tagsForCheckboxes,
         ]);
 
     }
