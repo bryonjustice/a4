@@ -20,11 +20,12 @@ class DatabaseSeeder extends Seeder
         $this->call(ComponentsTableSeeder::class);
         $this->call(CausesTableSeeder::class);
         $this->call(TagsTableSeeder::class);
-        
+
         # These must run chronologically due to foreign keys
         $this->call(DefectsTableSeeder::class);
         $this->call(NotesTableSeeder::class);
 
-
+        # Seed the pivot table
+        $this->call(DefectTagTableSeeder::class);
     }
 }

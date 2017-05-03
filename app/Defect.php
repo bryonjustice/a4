@@ -24,4 +24,12 @@ class Defect extends Model
         return $this->belongsTo('App\Priority');
     }
 
+    /**
+    * Relationship Method
+    */
+    public function tags() {
+
+        return $this->belongsToMany('App\Tag')->withTimestamps();
+    }
+
 }
