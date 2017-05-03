@@ -32,6 +32,7 @@
     {{ csrf_field() }}
     <fieldset class="uk-fieldset">
         <legend class="uk-legend">SUMMARY</legend>
+        <!-- content: form :: title [input] -->        
         <span>* Required fields</span>
         <div class="uk-width-1-1">
             <label for="title">TITLE<span>*</span></label>
@@ -41,7 +42,7 @@
                 name="title" id="title"
                 value="{{ old('title', '') }}">
         </div>
-
+        <!-- content: form :: description [select] -->
         <div class="uk-width-1-1">
             <label for="description">DESCRIPTION
                 <span>*</span>
@@ -54,7 +55,7 @@
         </div>
 
         <div class="uk-grid-small uk-flex" uk-grid >
-
+            <!-- content: form :: assignment [select] -->
             <div class="uk-width-1-2">
                 <label for="assignment_id">ASSIGNMENT
                     <span>*</span>
@@ -73,7 +74,7 @@
 
                 </select>
             </div>
-
+            <!-- content: form :: found_in_version [input] -->
             <div class="uk-width-1-2">
                 <label for="found_in_version">
                     FOUND IN VERSION<span>*</span></label>
@@ -84,6 +85,7 @@
         </div>
 
         <div class="uk-grid-small uk-flex" uk-grid >
+            <!-- content: form :: submitter [select] -->
             <div class="uk-width-1-2">
                 <label for="submitter_id">SUBMITTED BY
                     <span>*</span>
@@ -103,7 +105,7 @@
 
                 </select>
             </div>
-
+            <!-- content: form :: environment [radio] -->
             <div class="uk-width-1-2">
                 <label>ENVIRONMENT
                     <span>*</span>

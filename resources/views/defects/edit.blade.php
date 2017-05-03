@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    {{ ($view)?'View this Defect Record':'Edit this Defect Record' }}
+    {{ ($view)?'View the Defect Record':'Edit the Defect Record' }}
 @endsection
 
 @if(count($errors) > 0)
@@ -32,7 +32,7 @@
     {{ csrf_field() }}
     <input type='hidden' name='id' value='{{$defect->id}}'>
     <fieldset class="uk-fieldset">
-        <legend class="uk-legend">SUMMARY</legend>
+        <legend class="uk-legend">SUMMARY - ID # {{ $defect->id }}</legend>
         <span>* Required fields</span>
         <div class="uk-width-1-1">
             <label for="title">TITLE<span>*</span></label>
@@ -222,6 +222,34 @@
                 </select>
             </div>
         </div>
+        <!-- content: form :: toggle Tags on/off -->
+        <label for="cause_id"><span uk-icon="icon: tag"></span>TAGS</label><br>
+        <button href="#toggle-animation"
+            class="uk-button uk-button-secondary uk-button-small" type="button"
+            uk-toggle="target: .toggleTags;
+            animation: uk-animation-fade; queued: true; ">
+            <span class="toggleTags"
+                uk-icon="icon: chevron-down"> SHOW</span>
+            <span class="toggleTags"
+                uk-icon="icon: chevron-up" hidden> HIDE</span>
+        </button><br><br>
+        <div class="uk-margin-large-left">
+
+            <div class="toggleTags uk-card uk-card-default
+                uk-card-body uk-child-width-expand" uk-grid hidden>
+                @foreach($tagsForCheckboxes as $id => $long_name)
+                    <div class="uk-width-1-4">
+                        <label class="uk-text-small"><input class="uk-checkbox"
+                            type="checkbox" value='{{ $id }}' name='tags[]'
+                            {{ (in_array($long_name, $tagsForThisDefect))
+                                ? 'CHECKED' : '' }}
+                                {{ ($view)?'DISABLED':'' }}>
+                        {{ $long_name }}</label>
+                    </div>
+                @endforeach
+            </div>
+        </div><br>
+
     @if(!$view)
         <div class="uk-width-1-1">
             <label for="note">NOTE</label>

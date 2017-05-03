@@ -18,7 +18,7 @@
                     <h1><a href="#menu" uk-icon="icon: menu; ratio: 2"
                     uk-toggle class="logo" title="Menu"></a>
                     <span class="logo">
-                        D</span><span class="super">WA</span>efect backlog
+                        D</span><span class="super">WA</span>efect tracker
                     </h1>
 
                     <!-- sliding navigation / help -->

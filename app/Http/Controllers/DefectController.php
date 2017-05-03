@@ -106,12 +106,19 @@ class DefectController extends Controller
         # Find the recently added Defect and add the 'Created Defect' note.
         $result = Defect::orderBy('id', 'desc')->first();
 
+        #insert the creation note in the notes table
         $note = new Note;
         $note->post = "Defect Created [recorded: ".$result->created_at."].  "
             .$request->note."  [recorded: ".$result->created_at."]";
         $note->defect_id = $result->id;
 
         $note->save();
+
+        #update the defect tab pivot table
+        $tags = ($request->tags) ?: [];
+        # Sync tags
+        $defect->tags()->sync($tags);
+        $defect->save();
 
         # Provide a confirmation message to the user.
         session::flash('message','Defect Added.');
@@ -185,6 +192,14 @@ class DefectController extends Controller
         $causesForDropdown = Cause::getCausesForDropdown();
 
         $notesForHistory = Note::getNotesForHistory($id);
+        $tagsForCheckboxes = Tag::getTagsForCheckboxes();
+
+        # Create an array of the tag long_names associated with the defect;
+        # The view will need to check the appropriate form elements
+        $tagsForThisDefect = [];
+        foreach($defect->tags as $tag) {
+            $tagsForThisDefect[] = $tag->long_name;
+        }
 
         # get the url path
         $url = $request->path();
@@ -204,6 +219,8 @@ class DefectController extends Controller
             'prioritiesForDropdown' => $prioritiesForDropdown,
             'componentsForDropdown' => $componentsForDropdown,
             'causesForDropdown' => $causesForDropdown,
+            'tagsForCheckboxes' => $tagsForCheckboxes,
+            'tagsForThisDefect' => $tagsForThisDefect,
             'defect' => $defect,
             'notesForHistory' => $notesForHistory,
             'view'=> $view,
@@ -251,11 +268,18 @@ class DefectController extends Controller
 
         $defect->save();
 
+        # Insert the new note
         $note = new Note;
         $note->post = $request->note."  [recorded: ".$defect->updated_at."]";
         $note->defect_id = $request->id;
 
         $note->save();
+
+        #update the defect tab pivot table
+        $tags = ($request->tags) ?: [];
+        # Sync tags
+        $defect->tags()->sync($tags);
+        $defect->save();
 
         # Provide a confirmation message to the user.
         session::flash('message','Record Saved.');
