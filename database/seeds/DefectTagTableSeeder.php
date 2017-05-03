@@ -23,21 +23,18 @@ class DefectTagTableSeeder extends Seeder
             4 => [13,17,21]
         ];
 
-        # Loop the the array and create a new pivot
+        # Loop the the array and create each pivot entry
         foreach($defects as $id => $tags) {
             # Get the defect
             $defect = Defect::where('id','=',$id)->first();
 
-            # Loop through the tags for the books
+            # Loop through the tags for the defects
             foreach($tags as $id) {
                 $tag = Tag::where('id','=',$id)->first();
 
-                # save the tag and book
+                # save the tag and defect
                 $defect->tags()->save($tag);
             }
-
-
         }
-
     }
 }

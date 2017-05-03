@@ -21,6 +21,7 @@ Route::get('/defects/delete/{id}', 'DefectController@confirmDeleteDefect');
 Route::post('/defects/delete', 'DefectController@hideDefect');
 Route::get('/defects/edit/{id}', 'DefectController@editDefect');
 Route::post('defects/edit', 'DefectController@updateDefect');
+Route::get('defects/view/{id}', 'DefectController@editDefect');
 
 /**
 * Log viewer

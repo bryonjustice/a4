@@ -11,8 +11,8 @@
             <tr>
                 <th>#</th>
                 <th>Title</th>
-                <th>Priority</th>
                 <th>State</th>
+                <th>Priority</th>
                 <th>Actions</th>
             </tr>
         </thead>

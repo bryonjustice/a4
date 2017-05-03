@@ -157,7 +157,7 @@ class DefectController extends Controller
     * GET
     * /defects/edit/{id}
     */
-    public function editDefect($id) {
+    public function editDefect($id, Request $request) {
 
         # Find the specific defect requested to delete
         $defect = Defect::find($id);
@@ -179,6 +179,15 @@ class DefectController extends Controller
 
         $notesForHistory = Note::getNotesForHistory($id);
 
+        # get the url path
+        $url = $request->path();
+
+        # determine if view mode to disable form elements within the view.
+        if (strpos($url, 'view') == true) {
+            $view = 'true';
+        } else {
+            $view = '';
+        }
 
         return view('/defects/edit')->with([
             'assignmentsForDropdown' => $assignmentsForDropdown,
@@ -190,6 +199,7 @@ class DefectController extends Controller
             'causesForDropdown' => $causesForDropdown,
             'defect' => $defect,
             'notesForHistory' => $notesForHistory,
+            'view'=> $view,
         ]);
 
     }

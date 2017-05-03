@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Edit this Defect Record
+    {{ ($view)?'View this Defect Record':'Edit this Defect Record' }}
 @endsection
 
 @if(count($errors) > 0)
@@ -40,7 +40,8 @@
                 placeholder=
                 "Enter a brief title that best describes the issue."
                 name="title" id="title"
-                value="{{ old('title', $defect->title) }}">
+                value="{{ old('title', $defect->title) }}"
+                {{ ($view)?'DISABLED':'' }}>
         </div>
 
         <div class="uk-width-1-1">
@@ -51,7 +52,8 @@
             placeholder=
             "Enter step-by-step instructions to reproduce the issue."
                 name="description"
-                id="description">{{ old('description',
+                id="description" {{ ($view)?'DISABLED':'' }}
+                >{{ old('description',
                 $defect->description) }}</textarea>
         </div>
 
@@ -62,7 +64,8 @@
                     <span>*</span>
                 </label>
                 <select class="uk-select uk-card-hover"
-                    name="assignment_id" id="assignment_id">
+                    name="assignment_id" id="assignment_id"
+                    {{ ($view)?'DISABLED':'' }}>
                     <option>- Select an assignment -</option>
 
                     @foreach($assignmentsForDropdown as
@@ -83,7 +86,8 @@
                 <input class="uk-input uk-card-hover" type="text"
                     value="{{ old('found_in_version',
                     $defect->found_in_version) }}"
-                    name="found_in_version" id="found_in_version" >
+                    name="found_in_version" id="found_in_version"
+                    {{ ($view)?'DISABLED':'' }}>
             </div>
         </div>
 
@@ -93,7 +97,8 @@
                     <span>*</span>
                 </label>
                 <select class="uk-select uk-card-hover"
-                    name="submitter_id" id="submitter_id">
+                    name="submitter_id" id="submitter_id"
+                    {{ ($view)?'DISABLED':'edit' }}>
                     <option value="">
                         - Who reported the issue? -
                     </option>
@@ -121,7 +126,8 @@
                         value="{{ $environment_id }}"
                         {{ (old('environment_id') == $environment_id ||
                         $defect->environment_id == $environment_id) ?
-                        'CHECKED' : '' }}>
+                        'CHECKED' : '' }}
+                        {{ ($view)?'DISABLED':'edit' }}>
                         <span>{{ $environment_long_name }}</span>
                         <br>
                 @endforeach
@@ -141,7 +147,8 @@
                     <span>*</span>
                 </label>
                 <select class="uk-select uk-card-hover"
-                    name="state_id" id="state_id">
+                    name="state_id" id="state_id"
+                    {{ ($view)?'DISABLED':'' }}>
                     @foreach($statesForDropdown as
                         $state_id => $state_long_name)
                         <option value="{{ $state_id }}"
@@ -159,7 +166,8 @@
                     <span>*</span>
                 </label>
                 <select class="uk-select uk-card-hover"
-                    name="priority_id" id="priority_id">
+                    name="priority_id" id="priority_id"
+                    {{ ($view)?'DISABLED':'' }}>
                     <option value="">- select a priority -</option>
                     @foreach($prioritiesForDropdown as
                         $priority_id => $priority_long_name)
@@ -180,7 +188,8 @@
                     <span>*</span>
                 </label>
                 <select class="uk-select uk-card-hover"
-                    name="component_id" id="component_id">
+                    name="component_id" id="component_id"
+                    {{ ($view)?'DISABLED':'' }}>
                     <option value="">- select a component -</option>
                     @foreach($componentsForDropdown as
                         $component_id => $component_long_name)
@@ -199,7 +208,8 @@
                     <span>*</span>
                 </label>
                 <select class="uk-select uk-card-hover"
-                    name="cause_id" id="cause_id">
+                    name="cause_id" id="cause_id"
+                    {{ ($view)?'DISABLED':'' }}>
                     <option value="">- select a cause -</option>
                     @foreach($causesForDropdown as
                         $cause_id => $cause_long_name)
@@ -212,6 +222,7 @@
                 </select>
             </div>
         </div>
+    @if(!$view)
         <div class="uk-width-1-1">
             <label for="note">NOTE</label>
             <textarea class="uk-textarea uk-card-hover" rows="5"
@@ -219,8 +230,10 @@
         </div><br>
         <div>
             <button class="uk-button uk-button-primary">Submit</button>
-            <br><br><br>
+            <br><br>
         </div>
+    @endif
+        <br>
         <span class="uk-margin-small-right" uk-icon="icon: history;">
         </span>HISTORY
         <div class="uk-card uk-card-secondary uk-card-body uk-width-1-1@m
