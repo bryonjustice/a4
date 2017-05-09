@@ -17,10 +17,10 @@ class DefectTagTableSeeder extends Seeder
 
         # An array of defects and the associated tags
         $defects =[
-            1 => [13,17,20],
-            2 => [13,17,20],
-            3 => [13,17,21],
-            4 => [13,17,21]
+            1 => [14,18,22],
+            2 => [14,19,23],
+            3 => [14,20,24],
+            4 => [14,21,25]
         ];
 
         # Loop the the array and create each pivot entry

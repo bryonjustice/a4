@@ -67,6 +67,9 @@ function drawDefectsBySubmitter() {
         width: 400,
         height: 250,
         legend: 'none',
+        hAxis: {
+            minValue: 0,
+        },
     };
 
     // Create data table out of the json returned from the server.

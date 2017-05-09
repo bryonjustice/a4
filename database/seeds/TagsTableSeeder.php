@@ -17,233 +17,183 @@ class TagsTableSeeder extends Seeder
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 1',
+            'long_name' => 'v17.01.26',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 2',
+            'long_name' => 'v17.02.02',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 3',
+            'long_name' => 'v17.02.09',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 4',
+            'long_name' => 'v17.02.16',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 5',
+            'long_name' => 'v17.02.23',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 6',
+            'long_name' => 'v17.03.02',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 7',
+            'long_name' => 'v17.03.09',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 8',
+            'long_name' => 'v17.03.23',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 9',
+            'long_name' => 'v17.03.30',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 10',
+            'long_name' => 'v17.04.06',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 11',
+            'long_name' => 'v17.04.13',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 12',
+            'long_name' => 'v17.04.20',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Week 13',
+            'long_name' => 'v17.04.27',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'A1',
+            'long_name' => 'v17.05.11',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'A2',
+            'long_name' => 'v17.05.18',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'A3',
+            'long_name' => 'v17.05.25',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'A4',
+            'long_name' => 'v17.06.01',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'System Setup',
+            'long_name' => 'Team: Eleven',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'PHP',
+            'long_name' => 'Team: Hopper',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Laravel',
+            'long_name' => 'Team: Will Byers',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'MySQL',
+            'long_name' => 'Team: Hawkins Lab',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Code',
+            'long_name' => 'Size: XS',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Documentation',
+            'long_name' => 'Size: S',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Presentation',
+            'long_name' => 'Size: M',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Version Control',
+            'long_name' => 'Size: L',
             'active' => 1,
         ]);
 
         Tag::insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Assignment Specific',
+            'long_name' => 'Size: XL',
             'active' => 1,
         ]);
-
-        Tag::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Outside Resource',
-            'active' => 1,
-        ]);
-
-        Tag::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Faculty',
-            'active' => 1,
-        ]);
-
-        Tag::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Student',
-            'active' => 1,
-        ]);
-
-        Tag::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Peer',
-            'active' => 1,
-        ]);
-
-        Tag::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Troubleshooting',
-            'active' => 1,
-        ]);
-
-        Tag::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Class Work',
-            'active' => 1,
-        ]);
-
-        Tag::insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'long_name' => 'Personal Project',
-            'active' => 1,
-        ]);
-
     }
 }
