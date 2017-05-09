@@ -39,7 +39,7 @@ class DefectsTableSeeder extends Seeder
             'component_id' => 1,
             'environment_id' => 1,
             'priority_id' => 2,
-            'state_id' => 1,
+            'state_id' => 2,
             'submitter_id' => 1,
         ]);
 
@@ -69,7 +69,7 @@ class DefectsTableSeeder extends Seeder
             'component_id' => 6,
             'environment_id' => 2,
             'priority_id' => 3,
-            'state_id' => 1,
+            'state_id' => 3,
             'submitter_id' => 2,
         ]);
     }
