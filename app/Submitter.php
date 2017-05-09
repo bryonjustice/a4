@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Submitter extends Model
 {
-  
+
+    /**
+    * Relationship method
+    */
+    public function defects() {
+        # Submitter has many Defects
+        # Define a one-to-many relationship.
+        return $this->hasMany('App\Defect');
+    }
+
     public static function getSubmittersForDropdown() {
 
         $submitters = Submitter::all();
@@ -22,6 +31,5 @@ class Submitter extends Model
         }
 
         return $submittersForDropdown;
-
-  }
+    }
 }

@@ -268,7 +268,7 @@
         uk-card-hover text-small">
             @foreach($notesForHistory as $note_id => $post)
             <h5 class="uk-heading-line">
-                <span uk-icon="icon: quote-right;"></span> Note </h5>
+                <span uk-icon="icon: file-edit;"></span> Note </h5>
             <span uk-icon="icon: triangle-right;"></span>
                 {{ $post }}<br>
             @endforeach

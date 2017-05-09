@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Environment extends Model
 {
+
+    /**
+    * Relationship method
+    */
+    public function defects() {
+        # Environment has many Defects
+        # Define a one-to-many relationship.
+        return $this->hasMany('App\Defect');
+    }
+
     public static function getEnvironmentsForRadio() {
 
         $environments = Environment::all();
@@ -21,5 +31,5 @@ class Environment extends Model
 
         return $environmentsForRadio;
 
-  }
+    }
 }

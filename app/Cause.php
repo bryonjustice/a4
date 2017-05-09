@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Cause extends Model
 {
 
+    /**
+    * Relationship method
+    */
+    public function defects() {
+        # Cause has many Defects
+        # Define a one-to-many relationship.
+        return $this->hasMany('App\Defect');
+    }
+
     public static function getCausesForDropdown() {
 
         $causes = Cause::all();
