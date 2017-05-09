@@ -31,6 +31,6 @@ class Priority extends Model
 
         return $prioritiesForDropdown;
 
-  }
+    }
 
 }
