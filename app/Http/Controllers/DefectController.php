@@ -157,6 +157,7 @@ class DefectController extends Controller
         $defect = Defect::find($request->id);
 
         # 'Soft' delete the record by setting the active value to false.
+        $defect->deleted_at = \Carbon\Carbon::now();
         $defect->active = 0;
 
         $defect->save();

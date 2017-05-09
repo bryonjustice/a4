@@ -25,6 +25,7 @@ class CreateDefectsTable extends Migration
     		    $table->timestamps();
 
     		    # The rest of the fields...
+            $table->timestamp('deleted_at')->nullable();
             $table->string('title');
             $table->text('description');
             $table->string('found_in_version');
