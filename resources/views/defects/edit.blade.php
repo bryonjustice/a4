@@ -98,7 +98,7 @@
                 </label>
                 <select class="uk-select uk-card-hover"
                     name="submitter_id" id="submitter_id"
-                    {{ ($view)?'DISABLED':'edit' }}>
+                    {{ ($view)?'DISABLED':'' }}>
                     <option value="">
                         - Who reported the issue? -
                     </option>
@@ -127,7 +127,7 @@
                         {{ (old('environment_id') == $environment_id ||
                         $defect->environment_id == $environment_id) ?
                         'CHECKED' : '' }}
-                        {{ ($view)?'DISABLED':'edit' }}>
+                        {{ ($view)?'DISABLED':'' }}>
                         <span>{{ $environment_long_name }}</span>
                         <br>
                 @endforeach
