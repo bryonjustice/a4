@@ -9,6 +9,7 @@
         <script src="/js/jquery-3.2.1.min.js"></script>
         <script src="/js/uikit.min.js"></script>
         <script src="/js/uikit-icons.min.js"></script>
+        @stack('scripts')
     </head>
     <body>
         <!-- top banner -->
@@ -33,6 +34,9 @@
                                 <a href="/defects/new" class="uk-icon-button"
                                     uk-icon="icon: plus"
                                     title="Enter a new defect"></a>
+                                <a href="/defects/metric" class="uk-icon-button"
+                                        uk-icon="icon: desktop"
+                                        title="Visualize the metrics"></a>
                             <h4>Helpful Hints</h4>
                                 <h5 class="uk-heading-line">
                                     <span>Create</span></h5>
@@ -44,15 +48,19 @@
 
                                 <h5 class="uk-heading-line">
                                     <span>Read</span></h5>
-                                    <p class='uk-text-small'>To read all of the
-                                    defect records navigate HOME
+                                    <p class='uk-text-small'>To view a snapshot
+                                    of all of the defect records navigate HOME
                                     by clicking the <span uk-icon="icon: home">
                                     </span> icon.</p>
-                                    <p class='uk-text-small'>To read an individual
-                                    record navigate HOME. Find the record you
-                                    would like to view and click the
-                                    <span uk-icon="icon: search"></span> icon
-                                    under the ACTIONS column.</p>
+                                    <p class='uk-text-small'>To read the detail
+                                    on an individual record navigate HOME and
+                                    then click the
+                                    <span uk-icon="icon: search"></span>
+                                    icon under the ACTIONS column.</p>
+                                    <p class='uk-text-small'>To visualize a
+                                        report of the defect metrics click the
+                                        <span uk-icon="icon: desktop">
+                                        </span> icon.</p>
 
                                 <h5 class="uk-heading-line">
                                     <span>Update</span></h5>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 # Add the Models
 use App\Assignment; # Add the Assignment Model
@@ -287,6 +288,75 @@ class DefectController extends Controller
 
         # Redirect the user to the backlog.
         return redirect('/defects/edit/'.$request->id);
+
+    }
+
+    /**
+    * GET
+    * /defects/metric
+    */
+    public function showMetric() {
+
+        return view('defects.metric');
+
+    }
+
+    /**
+    * GET
+    * /defects/json_by_priority
+    */
+    public function getJsonByPriority() {
+
+        #Run a raw SQL query to get the data for defects by priority pie chart
+        $slices = DB::select('select priority_id, count(id) as total
+            from defects where active = 1 group by priority_id');
+
+        #Return the json view with the data for each slice of the pie
+        return view('/defects.json_by_priority')->with([
+            'slices' => $slices,
+        ]);
+
+    }
+
+    /**
+    * GET
+    * /defects/json_by_priority
+    */
+    public function getJsonByState() {
+
+        #Run a raw SQL query to get the data for defects by priority pie chart
+        $slices = DB::select('select states.long_name as state,
+            count(defects.id) as total
+            from defects
+            inner join states ON defects.state_id = states.id
+            where defects.active = 1
+            group by states.long_name');
+
+        #Return the json view with the data for each slice of the pie
+        return view('/defects.json_by_state')->with([
+            'slices' => $slices,
+        ]);
+
+    }
+
+    /**
+    * GET
+    * /defects/json_by_priority
+    */
+    public function getJsonBySubmitter() {
+
+        #Run a raw SQL query to get the data for defects by priority pie chart
+        $slices = DB::select('select submitters.last_name as name,
+            count(defects.id) as total
+            from defects
+            inner join submitters ON defects.submitter_id = submitters.id
+            where defects.active = 1
+            group by submitters.last_name');
+
+        #Return the json view with the data for each slice of the pie
+        return view('/defects.json_by_submitter')->with([
+            'slices' => $slices,
+        ]);
 
     }
 
